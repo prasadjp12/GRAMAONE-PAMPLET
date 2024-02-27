@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ಸೂರ್ಯಪ್ರಕಾಶ ಹಸಿರು ಹಿನ್ನೆಲೆ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=GRAMA+ONE&display=swap">
+<style>
+  body {
+    background: linear-gradient(to bottom right, #FFFF00, #FFD700); /* ಹಸಿರು ಗ್ರೇಡಿಯೆಂಟ್ ಹಿನ್ನೆಲೆ */
+    margin: 0;
+    padding: 0;
+    font-family: 'GRAMA ONE', sans-serif; /* ಕನ್ನಡ ಫಾಂಟ್ */
+    width: 21cm; /* A4 ಕಾಗದದ ಅಗಲ */
+    height: 29.7cm; /* A4 ಕಾಗದದ ಎತ್ತರ */
+    page-break-after: always;
+    position: relative; /* ಶರೀರಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಸ್ಥಳೀಯತೆ ಹೊಂದಿದೆ */
+  }
+  .content {
+    padding: 20px;
+  }
+  h1 {
+    font-family: 'GRAMA ONE', sans-serif; /* ಕನ್ನಡ ಫಾಂಟ್ */
+    font-size: 50pt;
+    font-weight: bold;
+    color: #333; /* ಎದುರು ಬಣ್ಣ */
+    text-align: left; /* ಎಡ ಹೆಜ್ಜೆಯನ್ನು ಸರಿಮಾಡಿ */
+  }
+  p {
+    color: #666; /* ಮಧ್ಯಮ ಬಣ್ಣ */
+  }
+  label {
+    font-weight: bold;
+    text-transform: capitalize; /* ಪ್ರತಿಬಿಂಬಿಸುವ ಪಠ್ಯವನ್ನು ಮೇಲಕ್ಕೆ ತೆಗೆಯಿರಿ */
+    display: block; /* ಲೇಬಲ್ ಬ್ಲಾಕ್ ಅಂಶಗಳನ್ನು ಮಾಡಿ */
+    margin-bottom: 5px; /* ಲೇಬಲ್‌ಗಳ ಕೆಳಗೆ ಕೆಲವು ಸ್ಥಳಗಳನ್ನು ಸೇರಿಸಿ */
+    text-align: left; /* ಲೇಬಲ್‌ಗಳನ್ನು ಎಡಕ್ಕೆ ಸರಿಮಾಡಿ */
+    font-size: 20px; /* 2 ಪಟ್ಟಿಯಲ್ಲಿ ಅಕ್ಷರಗಳ ಗಾತ್ರವನ್ನು ಹೆಚ್ಚಿಸಿ */
+  }
+  input[type="text"],
+  textarea,
+  select {
+    width: calc(100% - 120px); /* ಲೇಬಲ್‌ಗಳಿಗಾಗಿ ಸ್ಥಳವನ್ನು ಬಿಡುವ ವಿಸ್ತೀರ್ಣವನ್ನು ಅಳತೆ ಮಾಡಿ */
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #FFFF00; /* ಸೂರ್ಯಪ್ರಕಾಶ ಹಸಿರು */
+    background: linear-gradient(to bottom right, #FFFF00, #FFD700); /* ಹಸಿರು ಗ್ರೇಡಿಯೆಂಟ್ ಹಿನ್ನೆಲೆ */
+    font-size: 20px; /* 2 ಪಟ್ಟಿಯಲ್ಲಿ ಅಕ್ಷರಗಳ ಗಾತ್ರವನ್ನು ಹೆಚ್ಚಿಸಿ */
+  }
+  .print-button {
+    background-color: #008CBA; /* ನೀಲಿ */
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px; /* 2 ಪಟ್ಟಿಯಲ್ಲಿ ಅಕ್ಷರಗಳ ಗಾತ್ರವನ್ನು ಹೆಚ್ಚಿಸಿ */
+    margin: 20px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  .print-button.hidden {
+    display: none; /* ಮುದ್ರಿಸುವ ಬಟನ್‌ನನ್ನು ಮರೆಮಾಡಿ */
+  }
+  
+  /* ಎಡ ಬಲ ಮೂಲಕ ಟಾಪ್ ಎಡಗೆ */
+  .top-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #333; /* ಎದುರು ಬಣ್ಣ */
+    font-weight: bold;
+    font-size: 20px; /* 2 ಪಟ್ಟಿಯಲ್ಲಿ ಅಕ್ಷರಗಳ ಗಾತ್ರವನ್ನು ಹೆಚ್ಚಿಸಿ */
+    white-space: nowrap; /* ಅವರೆಡ್ಡದಿಂದ ಕಡಿಮೆಗೆ */
+  }
+
+  .top-left label,
+  .top-left span {
+    display: inline-block; /* ಲೇಬಲ್‌ಗಳು ಮತ್ತು ಸ್ಪಾನ್‌ಗಳನ್ನು ಒಂದು ಗೆರೆಯಲ್ಲಿ ಪ್ರದರ್ಶಿಸಿ */
+    margin-right: 10px; /* ಲೇಬಲ್‌ಗಳು ಮತ್ತು ಸ್ಪಾನ್‌ಗಳ ನಡುವೆ ಕೆಲವು ಸ್ಥಳಗಳನ್ನು ಸೇರಿಸಿ */
+  }
+
+  /* ಮೇಲ್ಕಂಡ ಬಲ ಮೂಲಕ ಟಾಪ್ ಎಡಗೆ ಲೋಗೊ */
+  .top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    max-width: calc(50% - 40px); /* ಲೋಗೊಗಾಗಿ ಗರಿಷ್ಠ ಅಗಲ */
+    text-align: right;
+  }
+
+  .top-right img {
+    max-width: 100%; /* ಲೋಗೊಗಾಗಿ ಗರಿಷ್ಠ ಅಗಲ */
+    height: auto; /* ದೃಶ್ಯ ಅನುರೂಪತೆಯನ್ನು ಉಳಿಸಿ */
+    max-height: 150px; /* ಲೋಗೊಗಾಗಿ ಗರಿಷ್ಠ ಎತ್ತರ */
+  }
+</style>
+</head>
+<body>
+
+<!-- ಎಡ ಬಲ ಮೂಲಕ ಟಾಪ್ ಎಡಗೆ -->
+<div class="top-left">
+  <label for="current-time">ಸಮಯ:</label>
+  <span id="current-time">12:01:51 ಅಪರಾಹ್ನ</span>
+  <label for="current-date">ದಿನಾಂಕ:</label>
+  <span id="current-date">2/27/2024</span>
+</div>
+
+<!-- ಮೇಲ್ಕಂಡ ಬಲ ಮೂಲಕ ಟಾಪ್ ಎಡಗೆ ಲೋಗೊ -->
+<div class="top-right">
+  <img src="https://gramaone.karnataka.gov.in/images/Grama_one.png" alt="ಲೋಗೊ">
+</div>
+
+<div class="content">
+  <h1>ಗ್ರಾಮ ಒನ್</h1>
+  
+  <div>
+    <label for="mobile_number">ಗ್ರಾಮ ಒನ್ ಆಪರೇಟರ್ ಹೆಸರು ಮತ್ತು ಮೊಬೈಲ್ ಸಂಖ್ಯೆ:</label>
+    <input type="text" id="mobile_number" name="mobile_number" pattern="[0-9]{10}" title="ದಯವಿಟ್ಟು 10-ಅಂಕಿಯ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ." required>
+  </div>
+
+  <div>
+    <label for="address">ಗ್ರಾಮ ಒನ್ ವಿಳಾಸ:</label>
+    <input type="text" id="address" name="address">
+  </div>
+  
+  <div>
+    <label for="service_name">ಸೇವೆಯ ಹೆಸರು:</label>
+    <input type="text" id="service_name" name="service_name">
+  </div>
+  
+  <div>
+    <label for="eligible">ಈ ಸೇವೆಯನ್ನು ಪಡೆಯಲು ಯಾರು ಅರ್ಹರು:</label>
+    <textarea id="eligible" name="eligible" rows="2"></textarea>
+  </div>
+  
+  <div>
+    <label for="documents">ವಿನಂತಿಯ ಜೊತೆಗೆ ದಾಖಲೆಗಳು:</label>
+    <textarea id="documents" name="documents" rows="4"></textarea>
+  </div>
+  
+  <div>
+    <label for="biometric">ಬೈಯೋಮೆಟ್ರಿಕ್ ಅಗತ್ಯವಿದೆ:</label>
+    <select id="biometric" name="biometric">
+      <option value="yes">ಹೌದು</option>
+      <option value="no">ಇಲ್ಲ</option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="aadhar_otp">ಆಧಾರ್ ಓಟಿಪಿ ಅಗತ್ಯವಿದೆ:</label>
+    <select id="aadhar_otp" name="aadhar_otp">
+      <option value="yes">ಹೌದು</option>
+      <option value="no">ಇಲ್ಲ</option>
+    </select>
+  </div>
+  
+</div>
+
+<button id="printButton" class="print-button" onclick="printPage()">ಮುದ್ರಿಸು</button>
+
+<script>
+function printPage() {
+  window.print();
+  document.getElementById("printButton").classList.add("hidden");
+}
+</script>
+
+</body>
+</html>
